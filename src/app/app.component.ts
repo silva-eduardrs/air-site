@@ -52,20 +52,35 @@ export class AppComponent implements OnInit {
       name: 'Logo Carrier',
     },
   ];
-  innerWidth = window.innerWidth;
-  innerHeight = window.innerHeight;
+  innerWidth = document.documentElement.clientWidth;
+  innerHeight = document.documentElement.clientHeight;
+  touchStart: Touch | undefined;
   scrollPage = 'transform: translate3d(0px, 0px, 0px);';
   heightScrolled = 0;
-  section = 0; //
+  section = 0;
 
   ngOnInit(): void {
+    window.addEventListener('resize', () => {
+      this.innerHeight = document.documentElement.clientHeight * 0.01;
+      document.documentElement.style.setProperty('--vh', `${this.innerHeight}px`);
+    });
+    document.addEventListener("touchstart", (event) => {
+      this.touchStart = event.changedTouches[0];
+    });
+    document.addEventListener("touchend", (event) => {
+      if (this.touchStart?.clientY! > event.changedTouches[0].clientY) {
+        this.scrollDown();
+      } else {
+        this.scrollUp();
+      }
+    });
     document.addEventListener('mousewheel',(event) => this.onScroll(event),false);
     document.addEventListener('DOMMouseScroll',(event) => this.onScroll(event),false);
     document.addEventListener('keydown', (event) => {
       if (event.key === 'ArrowDown' || event.key === 'ArrowRight' || event.key === 'Space' || event.key === 'PageDown') {
         this.scrollDown();
       } else if (event.key === 'ArrowUp' || event.key === 'ArrowLeft' || event.key === 'PageUp') {
-        this.scrollDown();
+        this.scrollUp();
       }
     }, false);
   }
