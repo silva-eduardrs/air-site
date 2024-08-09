@@ -19,6 +19,7 @@ header {
     display: flex;
     margin: 0;
     font-size: 1.3em;
+    font-weight: 600;
 
     li {
       display: block;
@@ -50,8 +51,9 @@ main {
   }
 
   section {
-    padding: 16px;
+    padding: 10vh 16px 16px 16px;
     height: 100vh;
+    height: calc(var(--vh, 1vh) * 100);
     position: relative;
     z-index: 1;
 
@@ -76,7 +78,6 @@ main {
     position: relative;
 
     h1 {
-      margin-top: 15vh;
       color: #08212e;
     }
 
