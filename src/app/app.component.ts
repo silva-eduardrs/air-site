@@ -60,17 +60,19 @@ export class AppComponent implements OnInit {
   section = 0;
 
   ngOnInit(): void {
+    this.setViewHeight();
     window.addEventListener('resize', () => {
-      this.innerHeight = document.documentElement.clientHeight * 0.01;
-      document.documentElement.style.setProperty('--vh', `${this.innerHeight}px`);
+      this.innerHeight = document.documentElement.clientHeight;
+      let viewHeight = document.documentElement.clientHeight * 0.01;
+      this.setViewHeight(viewHeight);
     });
     document.addEventListener("touchstart", (event) => {
       this.touchStart = event.changedTouches[0];
     });
     document.addEventListener("touchend", (event) => {
-      if (this.touchStart?.clientY! > event.changedTouches[0].clientY) {
+      if (Math.round(this.touchStart?.clientY!) > Math.round(event.changedTouches[0].clientY)) {
         this.scrollDown();
-      } else {
+      } else if (Math.round(this.touchStart?.clientY!) < Math.round(event.changedTouches[0].clientY)) {
         this.scrollUp();
       }
     });
@@ -109,6 +111,10 @@ export class AppComponent implements OnInit {
     this.section = section;
     this.heightScrolled = this.innerHeight * section;
     this.setScrollPage();
+  }
+
+  setViewHeight(viewHeight = this.innerHeight * 0.01) {
+    document.documentElement.style.setProperty('--vh', `${viewHeight}px`);
   }
 
   setScrollPage() {
