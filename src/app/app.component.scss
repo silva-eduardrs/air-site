@@ -57,21 +57,6 @@ main {
     height: calc(var(--vh, 1vh) * 100);
     position: relative;
     z-index: 1;
-
-    h1 {
-      text-align: center;
-      font-size: 3em;
-    }
-
-    h2 {
-      text-align: center;
-      font-size: 2em;
-    }
-
-    h3 {
-      text-align: center;
-      font-size: 1.5em;
-    }
   }
 
   #principal {
@@ -132,32 +117,49 @@ main {
   }
 
   #produtos {
-    background-color: #a4fdf9;
+    background-color: white;
 
     h2 {
       color: #1a2726;
     }
 
     .carousel-wrapper {
-      margin-top: 20vh;
-
-      .img-logo-wrapper {
+      .display-item {
+        width: 100%;
+        height: 100%;
         display: flex;
         justify-content: center;
         align-items: center;
+        background-color: white;
+        border-radius: 20px;
 
-        .img-logo {
-          width: 50vw;
+        .img-logo-wrapper {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+
+          .img-logo {
+            width: 50vw;
+          }
         }
       }
     }
   }
 
   #precos {
-    background-color: #a4c0fd;
+    background-color: #97cadb;
+
+    h3 {
+      text-align: left;;
+    }
 
     h2, h3 {
       color: #1e232e;
+    }
+
+    i {
+      font-size: 6vw;
+      color: azure;
     }
   }
 
@@ -170,7 +172,7 @@ main {
   }
 
   #contato {
-    background-color: #61a5ff;
+    background-color: white;
 
     h2 {
       color: #1a2d46;
@@ -232,4 +234,10 @@ a {
   0%   { transform: translateY(0); }
   50%  { transform: translateY(-20px); }
   100% { transform: translateY(0); }
+}
+
+p-carousel ::ng-deep {
+  .p-carousel-item {
+    padding: 16px;
+  }
 }

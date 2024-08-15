@@ -24,11 +24,11 @@
     </section>
     <section id="produtos">
       <h2>Trabalhamos com as melhores marcas e melhores equipamentos</h2>
-      <div class="carousel-wrapper">
+      <div class="carousel-wrapper mt-5">
         <p-carousel [value]="brandsCarousel" [numVisible]="1" [numScroll]="1" [circular]="true"
           [responsiveOptions]="responsiveCarouselOptions" [autoplayInterval]="4000">
           <ng-template let-product pTemplate="item">
-            <div class="border-1 surface-border border-round m-2 p-3">
+            <div class="display-item">
               <div class="mb-3">
                 <div class="relative mx-auto img-logo-wrapper">
                   <img class="img-logo border-round" [src]="product.image" [alt]="product.name" />
@@ -38,10 +38,43 @@
           </ng-template>
         </p-carousel>
       </div>
+      <h4 class="mt-5">Consultoria Técnica Especializada</h4>
+      <p>
+        Nossa equipe técnica está preparada para orientar na escolha do melhor
+        sistema de ar condicionado, considerando todos os fatores do seu projeto e
+        necessidades específicas de climatização
+      </p>
+      <p *ngIf="innerWidth >= 768">
+        <span>
+          Para seu lar, oferecemos uma seleção de ar condicionados split e multi-split,
+          conhecidos pela operação silenciosa e design elegante, que se integra
+          perfeitamente à decoração do ambiente
+        </span>
+        <span>
+          Já para o setor comercial, a diversidade de opções é fundamental,
+          por isso, disponibilizamos os sistemas de ar condicionado cassete e piso-teto,
+          que oferecem uma distribuição uniforme do ar em espaços amplos
+        </span>
+      </p>
     </section>
     <section id="precos">
       <h2>Encontre os melhores preços e condições de compra!</h2>
-      <h3>Através dos nossos revendedores parceiros, encontraremos a opção ideal para seu orçamento </h3>
+      <h3> <i class="pi pi-dollar"></i> Preços</h3>
+      <p>
+        <span>
+          Graças às nossas parcerias com fabricantes e distribuidores de renome, conseguimos oferecer preços competitivos e condições especiais de pagamento.
+        </span>
+      </p>
+      <h3> <i class="pi pi-crown"></i> Promoções</h3>
+      <p>
+        <span>
+          Fique atento às nossas promoções e ofertas especiais!
+          Regularmente, disponibilizamos descontos sazonais, que podem tornar a
+          compra de seu ar condicionado ainda mais vantajosa.
+          Essas promoções são uma excelente oportunidade para adquirir
+          equipamentos de ponta por preços ainda mais acessíveis
+        </span>
+      </p>
     </section>
     <section id="parcerias">
       <h2>Possuímos parcerias com os melhores revendedores do mercado!</h2>
