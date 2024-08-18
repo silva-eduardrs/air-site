@@ -52,6 +52,38 @@ export class AppComponent implements OnInit {
       name: 'Logo Carrier',
     },
   ];
+  partnersCarousel = [
+    {
+      image: 'images/parceiros/adias.jfif',
+      name: 'Adias',
+      baseColor: '#FF5F05',
+      borderColor: 'black'
+    },
+    {
+      image: 'images/parceiros/bonshop.jpg',
+      name: 'Bonshop',
+      baseColor: 'white',
+      borderColor: '#127CB9'
+    },
+    {
+      image: 'images/parceiros/centralar.jfif',
+      name: 'CentralAr',
+      baseColor: 'white',
+      borderColor: '#083B52'
+    },
+    {
+      image: 'images/parceiros/dufrio.jpg',
+      name: 'Dufrio',
+      baseColor: 'white',
+      borderColor: '#21458F'
+    },
+    {
+      image: 'images/parceiros/frigelar.png',
+      name: 'Frigelar',
+      baseColor: 'white',
+      borderColor: '#013766'
+    }
+  ];
   innerWidth = document.documentElement.clientWidth;
   innerHeight = document.documentElement.clientHeight;
   touchStart: Touch | undefined;

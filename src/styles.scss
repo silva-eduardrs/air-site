@@ -1,5 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
 @import "primeicons/primeicons.css";
+@import "primeng/resources/themes/lara-light-blue/theme.css";
+@import "primeng/resources/primeng.css";
 
 body {
   padding: 0;
@@ -8,31 +10,38 @@ body {
   overflow: hidden;
 }
 
+.mt-3 {
+  margin-top: 3vh;
+}
+
 .mt-5 {
   margin-top: 5vh;
 }
 
-
-
 h1 {
   text-align: center;
-  font-size: 10vw;
+  font-size: 4vh;
+  margin: 0;
 }
 
 h2 {
   text-align: center;
-  font-size: 8vw;
+  font-size: 3.5vh;
+  margin: 0;
 }
 
 h3 {
   text-align: center;
-  font-size: 7vw;
+  font-size: 3vh;
+  margin: 0;
 }
 
 h4 {
-  font-size: 5vw;
+  font-size: 2.5vh;
+  margin: 0;
 }
 
 p {
-  font-size: 5vw;
+  font-size: min(2.5vh, 20px);
+  font-weight: 500;
 }
