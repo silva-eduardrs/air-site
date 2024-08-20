@@ -86,6 +86,7 @@ export class AppComponent implements OnInit {
   ];
   innerWidth = document.documentElement.clientWidth;
   innerHeight = document.documentElement.clientHeight;
+  numVisibleCarousel: number = 0;
   touchStart: Touch | undefined;
   scrollPage = 'transform: translate3d(0px, 0px, 0px);';
   heightScrolled = 0;
@@ -93,9 +94,11 @@ export class AppComponent implements OnInit {
 
   ngOnInit(): void {
     this.setViewHeight();
+    this.numVisibleCarousel = this.innerWidth >= 768 ? 3 : 1;
     window.addEventListener('resize', () => {
       this.innerHeight = document.documentElement.clientHeight;
       let viewHeight = document.documentElement.clientHeight * 0.01;
+      this.numVisibleCarousel = this.innerWidth >= 768 ? 3 : 1;
       this.setViewHeight(viewHeight);
     });
     document.addEventListener("touchstart", (event) => {

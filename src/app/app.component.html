@@ -5,7 +5,7 @@
   <nav>
     <ul>
       <li><a (click)="scrollToSection(1)">Produtos</a></li>
-      <li *ngIf="innerWidth >= 768"><a (click)="scrollToSection(2)">Preços e Condições</a></li>
+      <li *ngIf="innerWidth >= 1024"><a (click)="scrollToSection(2)">Preços e Condições</a></li>
       <li *ngIf="innerWidth >= 768"><a (click)="scrollToSection(3)">Parcerias</a></li>
       <li><a (click)="scrollToSection(4)">Contato</a></li>
     </ul>
@@ -25,7 +25,7 @@
     <section id="produtos">
       <h2 class="mt-3">Trabalhamos com as melhores marcas e melhores equipamentos</h2>
       <div class="carousel-wrapper">
-        <p-carousel [value]="brandsCarousel" [numVisible]="1" [numScroll]="1" [circular]="true"
+        <p-carousel [value]="brandsCarousel" [numVisible]="numVisibleCarousel" [numScroll]="1" [circular]="true"
           [responsiveOptions]="responsiveCarouselOptions" [autoplayInterval]="4000">
           <ng-template let-product pTemplate="item">
             <div class="display-item">
@@ -39,7 +39,7 @@
         </p-carousel>
       </div>
       <h4 class="mt-5">Consultoria Técnica Especializada</h4>
-      <p>
+      <p *ngIf="innerWidth < 768">
         Nossa equipe técnica está preparada para orientar na escolha do melhor
         sistema de ar condicionado, considerando todos os fatores do seu projeto e
         necessidades específicas de climatização
@@ -50,6 +50,8 @@
           conhecidos pela operação silenciosa e design elegante, que se integra
           perfeitamente à decoração do ambiente
         </span>
+      </p>
+      <p *ngIf="innerWidth >= 768">
         <span>
           Já para o setor comercial, a diversidade de opções é fundamental,
           por isso, disponibilizamos os sistemas de ar condicionado cassete e piso-teto,
@@ -59,38 +61,42 @@
     </section>
     <section id="precos">
       <h2 class="mt-3">Encontre os melhores preços e condições de compra!</h2>
-      <h3 class="mt-5"><i class="pi pi-dollar"></i>  Preços</h3>
-      <p>
-        <span>
-          Graças às nossas parcerias com fabricantes e distribuidores de renome, conseguimos oferecer preços
-          competitivos e condições especiais de pagamento.
-        </span>
-      </p>
-      <h3 class="mt-5"><i class="pi pi-crown"></i>  Promoções</h3>
-      <p>
-        <span>
-          Fique atento às nossas promoções e ofertas especiais!
-          Regularmente, disponibilizamos descontos sazonais, que podem tornar a
-          compra de seu ar condicionado ainda mais vantajosa.
-          Essas promoções são uma excelente oportunidade para adquirir
-          equipamentos de ponta por preços ainda mais acessíveis
-        </span>
-      </p>
+      <h3 class="mt-5"><i class="pi pi-dollar" *ngIf="innerWidth < 768"></i>  Preços</h3>
+      <div class="item-preco">
+        <i class="pi pi-dollar" *ngIf="innerWidth >= 768"></i>
+        <p>
+          <span>
+            Graças às nossas parcerias com fabricantes e distribuidores de renome, conseguimos oferecer preços
+            competitivos e condições especiais de pagamento.
+          </span>
+        </p>
+        <img src="images/ar-condicionado-2.webp" alt="Imagem Ar condicionado" *ngIf="innerWidth >= 768">
+      </div>
+      <h3 class="mt-5"><i class="pi pi-crown" *ngIf="innerWidth < 768"></i>  Promoções</h3>
+      <div class="item-preco promocao">
+        <i class="pi pi-crown" *ngIf="innerWidth >= 768"></i>
+        <img src="images/ar-condicionado-1.webp" alt="Imagem Ar condicionado" *ngIf="innerWidth >= 768">
+        <p>
+          <span>
+            Fique atento às nossas promoções e ofertas especiais!
+            Regularmente, disponibilizamos descontos sazonais, que podem tornar a
+            compra de seu ar condicionado ainda mais vantajosa.
+            Essas promoções são uma excelente oportunidade para adquirir
+            equipamentos de ponta por preços ainda mais acessíveis
+          </span>
+        </p>
+      </div>
     </section>
     <section id="parcerias">
       <h2 class="mt-3">Parcerias com os melhores revendedores do mercado!</h2>
-      <p [ngClass]="{'mt-5': innerWidth < 768}">
-        <span *ngIf="innerWidth < 768">
+      <p class="mt-5">
+        <span>
           Nossos parceiros são revendedores autorizados de diversas marcas,
           possuindo uma grande variedade de equipamentos e condições para compra,
           além de facilitar o processo de entrega e acionamento de garantias.
         </span>
-        <span *ngIf="innerWidth >= 768">
-          Nossos parceiros são de grande impacto no mercado, possuindo uma grande variedade
-          de equipamentos e condições para compra.
-        </span>
       </p>
-      <div class="carousel-wrapper">
+      <div class="carousel-wrapper" *ngIf="innerWidth < 768">
         <p-carousel
           [value]="partnersCarousel"
           [numVisible]="1"
@@ -116,8 +122,8 @@
         <img class="img-logo border-round" src="images/parceiros/dufrio.jpg" alt="Dufrio" />
         <img class="img-logo border-round" src="images/parceiros/frigelar.png" alt="Frigelar" />
       </div>
-      <p>
-        <span *ngIf="innerWidth >= 768">
+      <p class="mt-5" *ngIf="innerWidth >= 768">
+        <span >
           Além, é claro, de serem revendedores autorizados de diversas marcas, o que facilita
           no processo de entrega e acionamento de garantias.
         </span>
@@ -125,7 +131,7 @@
     </section>
     <section id="contato">
       <h2 class="mt-5">Ficou interessado? Entre em contato e saiba mais!</h2>
-      <div class="contato-wrapper">
+      <div class="contato-wrapper mt-10">
         <a href="mailto:rogerionava@gmail.com">
           <img src="images/logo-mail.webp" alt="Logo Mail">
         </a>
