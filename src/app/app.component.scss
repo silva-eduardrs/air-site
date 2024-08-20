@@ -28,11 +28,6 @@ header {
       & + li {
         margin-left: 16px;
       }
-
-      &:hover {
-        cursor: pointer;
-        scale: 1.1;
-      }
     }
   }
 }
@@ -161,6 +156,18 @@ main {
       font-size: 6vw;
       color: azure;
     }
+
+    .item-preco {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 0 5vw;
+      position: relative;
+
+      img {
+        width: 15vw;
+      }
+    }
   }
 
   #parcerias {
@@ -215,7 +222,6 @@ main {
       flex-direction: column;
       justify-content: center;
       align-items: center;
-      margin-top: 10vh;
 
       a + a {
         margin-top: 5vh;
@@ -244,21 +250,115 @@ main {
 
 @media (min-width: 768px) {
   header {
-    display: flex;
-
     figure img {
-      width: 3vw;
+      width: min(6vw, 36px);
 
       &:hover {
         cursor: pointer;
         scale: 1.2;
       }
     }
+
+    nav ul li:hover {
+      cursor: pointer;
+      scale: 1.1;
+    }
   }
-}
 
-@media (min-width: 1024px) {
+  main {
+    #principal {
+      .img-principal {
+        height: 100%;
 
+        .imagem-fundo {
+          background-repeat: round;
+          background-image: linear-gradient(to top, transparent 80%, #D8E1E6 100%), url(/images/ar-condicionado-principal-desktop.webp);
+        }
+      }
+
+      .btn-proximo {
+        right: 50%;
+
+        &:hover {
+          cursor: pointer;
+          scale: 1.1;
+        }
+      }
+    }
+
+    #produtos {
+      .carousel-wrapper {
+        .display-item .img-logo-wrapper .img-logo {
+          width: 15vw;
+        }
+      }
+    }
+
+    #precos {
+      .item-preco {
+        i {
+          position: absolute;
+          left: 0;
+          opacity: 0.3;
+        }
+
+        img {
+          border: 1px solid black;
+          border-radius: 6px;
+          padding: 16px;
+          margin-left: 2vw;
+          margin-right: 2vw;
+          margin-top: 1vw;
+        }
+
+        &.promocao {
+          i {
+            left: unset;
+            right: 26px;
+          }
+        }
+      }
+    }
+
+    #parcerias {
+      .parceiros-images {
+        margin: 5vh auto 0 auto;
+        width: 80%;
+
+        img {
+          width: 15vw;
+          filter: grayscale(1);
+
+          &:hover {
+            filter: grayscale(0);
+            cursor: pointer;
+          }
+        }
+      }
+    }
+
+    #contato {
+      .contato-wrapper {
+        flex-direction: row;
+
+        a {
+          & + a {
+            margin-top: 0;
+            margin-left: 5vw;
+          }
+
+          &:hover {
+            cursor: pointer;
+            scale: 1.1;
+          }
+        }
+
+        img {
+          width: 10vw;
+        }
+      }
+    }
+  }
 }
 
 a {
